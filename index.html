@@ -96,6 +96,8 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
+            position: relative;
         }
 
         .bar {
@@ -104,6 +106,18 @@
             background-color: #333;
             margin: 3px 0;
             transition: 0.3s;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
         }
 
         /* Hero Section */
@@ -469,6 +483,7 @@
                 transition: 0.3s;
                 box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
                 padding: 2rem 0;
+                z-index: 999;
             }
 
             .nav-menu.active {
@@ -793,7 +808,8 @@
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
@@ -861,15 +877,4 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards and other elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const eleme
+        const observer = new Inter
