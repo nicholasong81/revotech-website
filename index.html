@@ -448,12 +448,14 @@
             }
 
             .logo {
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
             }
 
             .nav-menu {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
                 align-items: center;
                 gap: 0.5rem;
                 padding: 0;
@@ -461,20 +463,21 @@
             }
 
             .nav-menu li {
-                width: 100%;
+                width: auto;
                 text-align: center;
             }
 
             .nav-link {
                 display: block;
-                padding: 0.75rem 1rem;
-                background: #f8f9fa;
-                border-radius: 8px;
+                padding: 0.5rem 0.75rem;
+                background: transparent;
+                border-radius: 6px;
                 text-decoration: none;
                 color: #555;
                 font-weight: 500;
                 transition: all 0.3s ease;
-                border: 1px solid #e9ecef;
+                border: 1px solid transparent;
+                font-size: 0.9rem;
             }
 
             .nav-link:hover {
@@ -538,22 +541,6 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-                width: 100%;
-                overflow-x: hidden;
-            }
-
-            .nav-container {
-                padding: 1rem 15px;
-            }
-
-            .nav-link {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.9rem;
-            }
-
             .hero {
                 padding: 100px 0 60px;
             }
@@ -609,6 +596,25 @@
             * {
                 max-width: 100%;
                 box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.75rem 15px;
+            }
+
+            .nav-menu {
+                gap: 0.25rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .logo-img {
+                height: 50px;
             }
         }
     </style>
