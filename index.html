@@ -441,11 +441,46 @@
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 20px;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
             .nav-menu {
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem 0;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0;
+                width: 100%;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 0.75rem 1rem;
+                background: #f8f9fa;
+                border-radius: 8px;
+                text-decoration: none;
+                color: #555;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border: 1px solid #e9ecef;
+            }
+
+            .nav-link:hover {
+                background: #3498db;
+                color: white;
+                border-color: #3498db;
             }
 
             .hero-title {
@@ -508,6 +543,15 @@
                 padding: 0 15px;
                 width: 100%;
                 overflow-x: hidden;
+            }
+
+            .nav-container {
+                padding: 1rem 15px;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.9rem;
             }
 
             .hero {
