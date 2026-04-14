@@ -847,7 +847,8 @@
                     <span class="footer-logo-text">Revotech Solutions</span>
                 </div>
                 <div class="footer-text">
-                    <p>&copy; 2026 Revotech Solutions. All rights reserved.</p>
+                    <p>&copy; 2026 Revotech Solutions Private Limited. All rights reserved.</p>
+                    <p>Founded in Singapore</p>
                 </div>
             </div>
         </div>
@@ -880,11 +881,21 @@
                 e.preventDefault();
                 
                 // Get form data
-                const formData = new FormData(form);
                 const name = form.querySelector('input[type="text"]').value;
                 const email = form.querySelector('input[type="email"]').value;
-                const subject = form.querySelector('input[type="text"]:nth-of-type(2)').value;
+                const subject = form.querySelector('input[placeholder="Subject"]').value;
                 const message = form.querySelector('textarea').value;
+                
+                // Validation
+                if (!name || !email || !subject || !message) {
+                    alert('Please fill in all fields before sending the message.');
+                    return;
+                }
+                
+                if (!email.includes('@') || !email.includes('.')) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
                 
                 // Create mailto link
                 const mailtoLink = `mailto:Hello@revotechsg.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
@@ -892,8 +903,10 @@
                 // Open email client
                 window.location.href = mailtoLink;
                 
-                // Reset form
-                form.reset();
+                // Reset form after a short delay
+                setTimeout(() => {
+                    form.reset();
+                }, 100);
             });
         }
 
